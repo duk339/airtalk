@@ -1,0 +1,23 @@
+<div>
+  <h3><%= @user.name %></h3>
+  <%= image_tag @user.get_profile_image(100,100) %>
+</div>
+<% if @user ==  current_user %>
+  <%= link_to "プロフィール編集", edit_user_path(@user.id) %>
+  <%= link_to "退会",user_path(current_user.id), class: "destroy-user", method: :delete, "data-confirm" => "本当に退会しますか？" %>
+<% end %>
+
+<h2><%= @user.name %>の投稿一覧</h2>
+<% @posts.each do |post| %>
+<div>
+  <%= link_to post_path(post.id) do %>
+
+  <% end %>
+
+  <%= link_to post_path(post.id) do %>
+    <p>タイトル：<%= post.title %></p>
+  <% end %>
+  <p>航空会社：<%= post.airline %></p>
+  <p>本文：<%= post.body %></p>
+</div>
+<% end %>
