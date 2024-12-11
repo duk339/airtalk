@@ -1,10 +1,10 @@
 <h1>投稿内容</h1>
 <h4>タイトル</h4>
-  <p><%= @post.title %></p>
+<p><%= @post.title %></p>
 <% if @post.image.attached? %>
   <h4>画像</h4>
-    <%= image_tag @post.image %>
-  <% end %>
+  <%= image_tag @post.image %>
+<% end %>
 
 <h4>航空会社名</h4>
 <p><%= @post.airline %></p>
@@ -16,7 +16,7 @@
 <p><%= @post.user.name %></p>
 <p><%= image_tag @post.user.get_profile_image(100,100) %></p>
 
-  <% if @post.user == current_user %>
-    <%= link_to "編集", edit_post_path(@post.id) %>
-    <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-  <% end %>
+<% if @post.user == current_user %>
+  <%= link_to "編集", edit_post_path(@post.id) %>
+  <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>
