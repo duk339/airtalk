@@ -21,7 +21,9 @@
   <h4>投稿日時</h4>
   <%= post.created_at.strftime('%Y/%m/%d') %>
   <h4>投稿ユーザー</h4>
-  <p><%= post.user.name %></p>
+  <%= link_to user_path(post.user.id) do %>
+    <p><%= post.user.name %></p>
+  <% end %>
   <p><%= image_tag post.user.get_profile_image(100,100) %></p>
 
 <% end %>
